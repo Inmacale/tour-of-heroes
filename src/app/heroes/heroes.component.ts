@@ -12,16 +12,21 @@ import { HeroService } from '../hero.service';
 export class HeroesComponent {
   
   heroes: Hero[] = [];
+  selectedHero?: Hero;
 
-  heroService: HeroService = inject(HeroService);
-  
-  getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+  constructor(private heroService: HeroService) {}
+  ngOnInit(): void {
+    this.getHeroes();
   }
 
-  selectedHero?: Hero;
+  private getHeroes(): void {
+    this.heroes = this.heroService.getHeroes();
+    
+  }
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
+
  
 }

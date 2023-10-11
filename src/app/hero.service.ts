@@ -8,14 +8,8 @@ import { HEROES } from './mock-heroes';
 })
 export class HeroService {
 
-  getHeroes(): Hero[] {
+  public getHeroes(): Hero[] {
     return HEROES;
-    
   }
-  ngOnInit(): void {
-    this.getHeroes();
-  }
-  
 
-  constructor(private heroService: HeroService) {}
 }
